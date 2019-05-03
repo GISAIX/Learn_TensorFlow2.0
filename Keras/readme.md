@@ -6,8 +6,8 @@ Including:
 
 * linear regression:
 
-<img src="https://github.com/StdCoutZRH/TensorFlow_and_Keras_notes/blob/master/Keras/results/result1-2.png" width="80%" height="80%">
+<img src="https://github.com/StdCoutZRH/TensorFlow_and_Keras_notes/blob/master/Keras/results/result1-2.png" width="50%" height="50%">
 
 * linear regression:
 
-<img src="https://github.com/StdCoutZRH/TensorFlow_and_Keras_notes/blob/master/Keras/results/result2-2.png" width="80%" height="80%">
+<img src="https://github.com/StdCoutZRH/TensorFlow_and_Keras_notes/blob/master/Keras/results/result2-2.png" width="50%" height="50%">
