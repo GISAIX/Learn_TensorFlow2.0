@@ -6,5 +6,5 @@ Including:
 
 * linear regression
 * nonlinear regression
-* mnist dnn
-* mnist cnn
+* mnist dnn (train acc:99.2%)
+* mnist cnn (train acc:99.8%)
