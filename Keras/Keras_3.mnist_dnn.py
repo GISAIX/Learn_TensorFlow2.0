@@ -14,7 +14,7 @@ def load_mnist_func(path):
     x_test, y_test = f['x_test'], f['y_test']
     f.close()
     return (x_train, y_train), (x_test, y_test)
-(x_train_data,y_train_data),(x_test_data,y_test_data) = load_mnist_func(path='/home/peco/my_projects/TensorFlow_and_Keras_notes/Keras/mnist.npz')
+(x_train_data,y_train_data),(x_test_data,y_test_data) = load_mnist_func(path='Keras\data\mnist.npz')
 print("x_train_shape:",x_train_data.shape)
 print("y_train_shape:",y_train_data.shape)
 print("x_test_shape:",x_test_data.shape)

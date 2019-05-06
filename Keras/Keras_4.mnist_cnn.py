@@ -13,7 +13,7 @@ def load_mnist_func(path):
     x_test, y_test = f['x_test'], f['y_test']
     f.close()
     return (x_train, y_train), (x_test, y_test)
-(x_train_data,y_train_data),(x_test_data,y_test_data) = load_mnist_func(path='Keras\mnist.npz')
+(x_train_data,y_train_data),(x_test_data,y_test_data) = load_mnist_func(path='Keras\data\mnist.npz')
 print("x_train_shape:",x_train_data.shape)
 print("y_train_shape:",y_train_data.shape)
 print("x_test_shape:",x_test_data.shape)
@@ -55,7 +55,7 @@ model.fit(x_train_data,y_train_data,batch_size=64,epochs=100)
 # 评估模型
 loss,accuracy = model.evaluate(x_test_data,y_test_data)
 
-model_path="Keras\keras_app\models\mnist_cnn.h5"
+model_path="Keras\keras_app\mnist_cnn\models\mnist_cnn.h5"
 model.save(model_path)
 
 print('test loss',loss)
