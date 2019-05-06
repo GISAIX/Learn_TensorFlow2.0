@@ -1,7 +1,4 @@
-import cv2 as cv
 import numpy as np
-import matplotlib.pyplot as plt
-from keras.datasets import mnist
 from keras.utils import np_utils
 from keras.models import Sequential
 from keras.layers import Dense,Dropout
@@ -15,6 +12,7 @@ def load_mnist_func(path):
     f.close()
     return (x_train, y_train), (x_test, y_test)
 (x_train_data,y_train_data),(x_test_data,y_test_data) = load_mnist_func(path='Keras\data\mnist.npz')
+
 print("x_train_shape:",x_train_data.shape)
 print("y_train_shape:",y_train_data.shape)
 print("x_test_shape:",x_test_data.shape)
@@ -54,22 +52,3 @@ print("test acc: ",accuracy)
 loss,accuracy = model.evaluate(x_train_data,y_train_data)
 print("train loss:",loss)
 print("train loss:",accuracy)
-
-def pred(name):
-    img = cv.imread(name,0)
-    img = cv.resize(img,(28,28),interpolation = 0)
-    img = 255-img
-    #plt.axis('off')
-    #plt.imshow(img)
-    data = cv.resize(img,(784,1))/255.0
-    result = model.predict(data)
-    print("pre result:",np.argmax(result,axis=1))
-    return np.argmax(result,axis=1)
-
-cnt = 0
-for i in range(10):
-    name = "/home/peco/my_projects/TensorFlow_and_Keras_notes/Keras/data/mnist_test_pictures/"+str(i)+".png"
-    res = pred(name)
-    if res  == i:
-        cnt=cnt+1
-print("test acc:",cnt/10.0)
