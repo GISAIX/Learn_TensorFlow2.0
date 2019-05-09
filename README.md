@@ -6,7 +6,7 @@
 
 In order to run the code in this repository, you should install **TensorFlow** and **Keras** in advance using the following commands in your terminal:
 
-if you have gpu,run
+run
 ```shell
 pip3 install tensorflow-gpu
 pip3 install keras
@@ -14,17 +14,6 @@ pip3 install keras
 if you use native pyhon,and run
 ```shell
 conda install tensorflow-gpu 
-conda install keras
-```
-if you use anaconda.
-else,run 
-```shell
-pip3 install tensorflow
-pip3 install keras
-```
-if you use native pyhon,and run
-```shell
-conda install tensorflow 
 conda install keras
 ```
 if you use anaconda.
