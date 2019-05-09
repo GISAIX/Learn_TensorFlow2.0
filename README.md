@@ -5,24 +5,30 @@
 ----------------------
 
 In order to run the code in this repository, you should install **TensorFlow** and **Keras** in advance using the following commands in your terminal:
-in python3 if you have gpu:
+
+if you have gpu,run
 ```shell
 pip3 install tensorflow-gpu
 pip3 install keras
 ```
-or in anaconda if you have gpu:
+if you use native pyhon,and run
 ```shell
 conda install tensorflow-gpu 
 conda install keras
 ```
-else 
+if you use anaconda.
+else,run 
 ```shell
 pip3 install tensorflow
 pip3 install keras
 ```
-or in anaconda:
+if you use native pyhon,and run
 ```shell
 conda install tensorflow 
 conda install keras
 ```
-Having a GPU greatly speeds up your model training. Of course, without a gpu, these codes can also run.☺☺☺
+if you use anaconda.
+
+-------------
+
+Having a GPU greatly speeds up your model training but it is not necessary, Of course, without a gpu, these codes can also run.🙂🙂🙂
