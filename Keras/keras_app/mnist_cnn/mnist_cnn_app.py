@@ -17,6 +17,7 @@ model = load_model("models\mnist_cnn.h5")
 
 def pred(name):
     img = cv.imread(name,0)
+    cv.imshow("input",img)
     img = cv.resize(img,(28,28),interpolation = 0)
     img = 255-img
     plt.axis('off')
@@ -24,6 +25,7 @@ def pred(name):
     img = img.reshape(-1,28,28,1)/255.0
     result = model.predict(img)
     print("pre result:",np.argmax(result,axis=1))
+    cv.waitKey(0)
     return np.argmax(result,axis=1)
 
 pred(args.image_path)
