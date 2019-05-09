@@ -1,9 +1,10 @@
 # TensorFlow_and_Keras_notes
-This series is about learning notes and code records for Tensorflow/Keras.
+
+**This series is about learning notes and code records for Tensorflow/Keras.**
 
 ----------------------
 
-In order to run the code in this repository, you should install tensorflow and keras in advance using the following commands:
+In order to run the code in this repository, you should install **TensorFlow** and **Keras** in advance using the following commands in your terminal:
 in python3 if you have gpu:
 ```shell
 pip3 install tensorflow-gpu
@@ -24,3 +25,4 @@ or in anaconda:
 conda install tensorflow 
 conda install keras
 ```
+Having a GPU greatly speeds up your model training. Of course, without a gpu, these codes can also run.☺☺☺
