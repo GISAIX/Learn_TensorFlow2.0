@@ -20,4 +20,4 @@ if you use anaconda.
 
 -------------
 
-Having a GPU greatly speeds up your model training but it is not necessary, Of course, without a gpu, these codes can also run.🙂🙂🙂
+Having a GPU greatly speeds up your model training but it is not necessary, Of course, without a gpu, these codes can also run.
