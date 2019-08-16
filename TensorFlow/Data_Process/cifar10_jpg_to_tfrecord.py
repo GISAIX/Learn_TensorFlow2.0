@@ -1,12 +1,15 @@
 import tensorflow as tf
 import glob
-import cv2
+from cv2 import cv2 as cv
 import numpy as np
-classes = ['airplane','automobile','bird','cat','deer','dog','frog','horse','ship','truck']
+
+classes = ['airplane','automobile','bird','cat',
+			'deer','dog','frog','horse','ship','truck']
 
 idx = 0
 im_data = []
 im_labels = []
+
 for class_ in classes:
 	path = "train_data/cifar10_jpgs/" + class_
 	im_list = glob.glob(path + "/*")
@@ -21,17 +24,12 @@ writer = tf.python_io.TFRecordWriter(tfrecord_file)
 index = [i for i in range(im_data.__len__())]
 
 np.random.shuffle(index)
-
-print("strat make")
-
-print("total:",im_data.__len__())
-
 for i in range(im_data.__len__()):
 	if i%5000 is 0 :
 		print(i)
 	im_d = im_data[index[i]]
 	im_l = im_labels[index[i]]
-	data = cv2.imread(im_d)
+	data = cv.imread(im_d)
 	ex = tf.train.Example(
 		features = tf.train.Features(
             feature = {
