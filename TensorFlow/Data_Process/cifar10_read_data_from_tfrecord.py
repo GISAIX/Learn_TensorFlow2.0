@@ -1,14 +1,25 @@
+from cv2 import cv2 as cv
 import tensorflow as tf
 import numpy as np
-from cv2 import cv2 as cv
 import glob
 import os
 
+batch_size = 1
 
-filelist = ['train_data.tfrecord']
+classes = ['airplane','automobile','bird','cat',
+            'deer','dog','frog','horse','ship','truck']
+
+features = {
+    'image':tf.FixedLenFeature([], tf.string),
+    'label':tf.FixedLenFeature([], tf.int64)
+}
+
+#构建文件名队列
+filelist = [r'TensorFlow\Data_Process\train_data.tfrecord']
 file_queue = tf.train.string_input_producer(filelist,num_epochs=None,shuffle=True)
+
 reader = tf.TFRecordReader()
- _,ex = reader.read(file_queue)
+_,ex = reader.read(file_queue)
 
 batch = tf.train.shuffle_batch([ex],batch_size,
                                     capacity=batch_size*10,
@@ -25,9 +36,9 @@ with tf.Session() as sess:
     sess.run(tf.local_variables_initializer())
     tf.train.start_queue_runners(sess=sess)
 
-    for i in range(5):
-        print(i)
+    for i in range(5):       
         image_bth,image_lab = sess.run([image,label])
-
-        cv.imshow(str(image_lab),image_bth[0,...])
+        print("image[{}],label:".format(i)+classes[image_lab[0]])
+        cv.namedWindow(classes[image_lab[0]],cv.WINDOW_NORMAL)
+        cv.imshow(classes[image_lab[0]],image_bth[0,...])
         cv.waitKey(0)
