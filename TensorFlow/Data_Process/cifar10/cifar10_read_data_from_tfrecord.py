@@ -15,7 +15,7 @@ features = {
 }
 
 #构建文件名队列
-filelist = [r'TensorFlow\Data_Process\train_data.tfrecord']
+filelist = ["./train_data.tfrecord"]
 file_queue = tf.train.string_input_producer(filelist,num_epochs=None,shuffle=True)
 
 reader = tf.TFRecordReader()

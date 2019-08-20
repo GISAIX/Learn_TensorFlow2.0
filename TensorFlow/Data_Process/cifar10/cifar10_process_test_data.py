@@ -17,8 +17,8 @@ def unpickle(file):
 data  = []
 labels = []
 
-file_name = r"TensorFlow\Data_Process\cifar-10-python\test_batch"
-saved_path=r'TensorFlow\Data_Process\test_data.tfrecord'
+file_name = "./cifar-10-python/test_batch"
+saved_path="./test_data.tfrecord"
 result = unpickle(file_name)
 
 data += list(result[b"data"])

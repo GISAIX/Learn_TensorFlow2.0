@@ -11,9 +11,9 @@ im_data = []
 im_labels = []
 
 for class_ in classes:
-    path = r"TensorFlow\Data_Process\images\\" + class_
+    path = "./images" + class_
     print(path)
-    im_list = glob.glob(path + r"\*")
+    im_list = glob.glob(path + "/*")
     im_label = [idx for i in  range(im_list.__len__())]
     idx += 1
     im_data += im_list
@@ -21,7 +21,7 @@ for class_ in classes:
 
 print(im_labels)
 
-tfrecord_file = r"TensorFlow\Data_Process\train_data.tfrecord"
+tfrecord_file = "./train_data.tfrecord"
 
 writer = tf.python_io.TFRecordWriter(tfrecord_file)
 
