@@ -1,11 +1,11 @@
 import tensorflow as tf
 
-def get_next_batch(batchsize=64, mode=1, no_aug_data=1):
+def get_next_batch(batchsize=128, mode=1, no_aug_data=1):
     reader = tf.TFRecordReader()
     if mode == 0: #train
-        file_list = [r'TensorFlow\Data_Process\train_data.tfrecord']
+        file_list = ['./train_data.tfrecord']
     if mode == 1: #test
-        file_list = [r'TensorFlow\Data_Process\test_data.tfrecord']
+        file_list = ['./test_data.tfrecord']
     filename_queue = tf.train.string_input_producer(
         file_list, num_epochs=None, shuffle=True
         )
@@ -41,7 +41,7 @@ def get_next_batch(batchsize=64, mode=1, no_aug_data=1):
     img_batch = tf.image.resize_images(img_batch, [32, 32])
     label_batch = tf.cast(features['label'], tf.int64)
 
-    #-1,1
+    #-1~1
     img_batch = tf.cast(img_batch, tf.float32) / 128.0 - 1.0
-    #
+
     return img_batch, label_batch
