@@ -2,7 +2,6 @@
 .vscode/
 TensorFlow/DataProcess/cifar-10-python/
 TensorFlow/DataProcess/images/
-TensorFlow/Resnet_Cifar10/saved_model
 TensorFlow/Resnet_Cifar10/logdir
 TensorFlow/Resnet_Cifar10/__pycache__
 *.tfrecord
