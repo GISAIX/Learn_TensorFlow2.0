@@ -26,6 +26,7 @@ def get_next_batch(batchsize=128, mode=1, no_aug_data=1):
     img_batch = tf.reshape(img_batch, [batchsize, 32, 32, 3])
 
     if type == 0 and no_aug_data == 1:
+        #如果从训练集中取数据则进行数据增强
         distorted_image = tf.random_crop(img_batch,
                                          [batchsize, 28, 28, 3])
         distorted_image = tf.image.random_contrast(distorted_image,
@@ -41,7 +42,7 @@ def get_next_batch(batchsize=128, mode=1, no_aug_data=1):
     img_batch = tf.image.resize_images(img_batch, [32, 32])
     label_batch = tf.cast(features['label'], tf.int64)
 
-    #-1~1
+    #归一化到-1~1之间
     img_batch = tf.cast(img_batch, tf.float32) / 128.0 - 1.0
 
     return img_batch, label_batch

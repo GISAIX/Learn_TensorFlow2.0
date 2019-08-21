@@ -5,10 +5,23 @@ import os
 slim = tf.contrib.slim
 
 def loss(logits, label):
+    """
+    loss : define loss function and return total loss and l2_loss
 
+    #Arguments：
+    logits:output of conv layer.
+
+    label:labels of data.
+
+    """
     one_hot_label = slim.one_hot_encoding(label, 10)
     slim.losses.softmax_cross_entropy(logits, one_hot_label)
 
+    # add l2 regularization.
+    '''
+    tf.get_collection(Key)：用来获取一个名称是‘key’的集合中的所有元素
+                        它返回的是一个列表，列表的顺序是按照变量放入集合中的先后; 
+    '''
     reg_set = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
     l2_loss = tf.add_n(reg_set)
     slim.losses.add_loss(l2_loss)
@@ -90,14 +103,14 @@ def train():
         if ckpt:
             saver.restore(sess, ckpt)
 
-        epoch_val = 100
+        epoch_val = 1
 
         tr_summary_op = tf.summary.merge(list(tr_summary))
         te_summary_op = tf.summary.merge(list(te_summary))
 
         summary_writer = tf.summary.FileWriter(logdir, sess.graph)
 
-        for i in range(5000 * epoch_val):
+        for i in range(50000 * epoch_val):
             train_im_batch, train_label_batch = sess.run([tr_im, tr_label])
             feed_dict = {
                 input_data:train_im_batch,
