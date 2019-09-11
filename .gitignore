@@ -1,7 +1,7 @@
 ##ignore these files##
 .vscode/
-TensorFlow/DataProcess/cifar-10-python/
-TensorFlow/DataProcess/images/
-TensorFlow/Resnet_Cifar10/logdir
-TensorFlow/Resnet_Cifar10/__pycache__
+TensorFlow/AlexNet_catVSdog/
+TensorFlow/Data_Process/catVSdog/train/
+TensorFlow/Data_Process/cifar10/cifar-10-python/
+TensorFlow/Data_Process/cifar10/images/
 *.tfrecord
