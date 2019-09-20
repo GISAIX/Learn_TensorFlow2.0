@@ -1,7 +1,6 @@
 # TensorFlow2.0_Notes
 
 **TensorFlow2.0:An end-to-end open source machine learning platform.**
-----------------------
 
 ## 安装TensorFlow2.0
 
