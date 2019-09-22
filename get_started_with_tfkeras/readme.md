@@ -1,4 +1,4 @@
-# Easy Play tf.kreas
+# Get started with tf.kreas
 
 This is the implementation of several computer vision cases based in ```tf.keras```.With these examples, you can easily get started with ```tf.keras```.
 
