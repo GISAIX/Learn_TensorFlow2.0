@@ -5,6 +5,10 @@
 <a href="https://github.com/StdCoutZRH/Learn_TensorFlow2.0/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/StdCoutZRH/Learn_TensorFlow2.0"></a>
 <img alt="TF - TensorFlow Version" src="https://img.shields.io/badge/TensorFlow-2.0beta-orange">
 
+<p align="center">
+  <img src="TensorFlow2.0.gif" width="250" align="middle">
+</p>
+
 **TensorFlow2.0: An end-to-end open source machine learning platform.**
 
 ## 安装TensorFlow2.0
