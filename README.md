@@ -25,6 +25,18 @@ pip install --upgrade pip
 pip install tensorflow-gpu==2.0.0-rc1
 ```
 
+检查是否安装成功：
+```python
+import tensorflow as tf
+tf.test.is_gpu_available()
+```
+log信息：
+```shell
+...
+TensorFlow device (                    /device:GPU:0 with 15123 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:06:                    00.0, compute capability: 6.0)
+2019-09-25 16:43:12.370299: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1084] Created TensorFlow device (                    /device:GPU:1 with 15123 MB memory) -> physical GPU (device: 1, name: Tesla P100-PCIE-16GB, pci bus id: 0000:81:                    00.0, compute capability: 6.0)
+True
+```
 -------------
 
 ## 使用tf.keras构建你的model
