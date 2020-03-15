@@ -68,9 +68,7 @@ model.fit(x_train_data,y_train_data,batch_size=64,epochs=100)
 loss,accuracy = model.evaluate(x_test_data,y_test_data)
 
 model_path="./weights/mnist_cnn.h5"
-model.save_weights()(model_path)
+model.save_weights(model_path)
 
 print('test loss',loss)
 print('test accuracy',accuracy)
-
-
