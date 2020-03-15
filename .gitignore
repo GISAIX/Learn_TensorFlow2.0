@@ -1,9 +1,5 @@
 ##ignore these files##
 .vscode/
-tensorflow1.x/AlexNet_catVSdog/
-tensorflow1.x/Data_Process/catVSdog/train/
-tensorflow1.x/Data_Process/cifar10/cifar-10-python/
-tensorflow1.x/Data_Process/cifar10/images/
 *.tfrecord
 *.h5
 *..ipynb_checkpoints
