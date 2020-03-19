@@ -171,7 +171,7 @@ with tf.GradientTape()as tape:
 ## 6.博客目录
 1.TensorFlow2.0全景: <https://blog.csdn.net/PecoHe/article/details/89672824>
 
-2.tf.keras基础API总结: <https://blog.csdn.net/PecoHe/article/details/88875837>
+2.深度学习与tf.keras基础API总结: <https://blog.csdn.net/PecoHe/article/details/88875837>
 
 3.快速上手tf.keras第一部分：实现回归模型: <https://blog.csdn.net/PecoHe/article/details/88868084>
 
