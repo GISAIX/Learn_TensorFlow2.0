@@ -105,9 +105,7 @@ model.add(layers.Dense)(10,activation ='softmax')
 ```
 然后可以在几行中编译和训练这样的模型：
 ```python
-model.compile(optimizer ='adam',
-loss ='sparse_categorical_crossentropy',
-metrics = ['accuracy'])
+model.compile(optimizer ='adam',loss ='sparse_categorical_crossentropy',metrics = ['accuracy'])
 model.fit(x_train,y_train,epochs = 5)
 model.evaluate(x_test,y_test)
 ```
@@ -169,12 +167,10 @@ with tf.GradientTape()as tape:
 我们希望您能像我们一样喜欢使用```tf.keras```！在接下来的几个月里，```TensorFlow```团队将专注于完善开发人员体验。我们的文档和教程将反映这一方向。我们期待您的想法和反馈，以及通过```GitHub问题和PR```的贡献。感谢大家！
 
 ## 6.博客目录
-1.TensorFlow2.0全景: <https://blog.csdn.net/PecoHe/article/details/89672824>
-
-2.深度学习与tf.keras基础API总结: <https://blog.csdn.net/PecoHe/article/details/88875837>
-
-3.快速上手tf.keras第一部分：实现回归模型: <https://blog.csdn.net/PecoHe/article/details/88868084>
-
-4.快速上手tf.keras第二部分：手写数字识别 :<https://blog.csdn.net/PecoHe/article/details/88868174>
+1.TensorFlow2.0全景: <https://blog.csdn.net/PecoHe/article/details/89672824>  
+2.深度学习与tf.keras基础API总结: <https://blog.csdn.net/PecoHe/article/details/88875837>  
+3.快速上手tf.keras第一部分：实现回归模型: <https://blog.csdn.net/PecoHe/article/details/88868084>  
+4.快速上手tf.keras第二部分：手写数字识别 :<https://blog.csdn.net/PecoHe/article/details/88868174>  
+5.tf.keras trick之使用图像数据增强 :<https://blog.csdn.net/PecoHe/article/details/88875886>  
 
 
