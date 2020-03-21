@@ -158,7 +158,7 @@ def vgg19(include_top=True,weights='imagenet',
     net = MaxPooling2D(2,2,'same',name='block1_maxpool')(net)
 
     # Block 2
-    net = Convolution2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv1')(input_)
+    net = Convolution2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv1')(net)
     net = Convolution2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv2')(net)
     net = MaxPooling2D(2,2,'same',name='block2_maxpool')(net)
 
@@ -230,6 +230,5 @@ if __name__=='__main__':
     # test
     #model = vgg16(weights='imagenet',input_shape=(224,224,3),include_top=True,classes=100)
     #model.summary()
-
-    model = vgg19(weights=None,input_shape=(224,224,3),include_top=True,classes=100)
+    model = vgg19(weights=None,input_shape=(224,224,3),include_top=True,classes=1000)
     model.summary()
