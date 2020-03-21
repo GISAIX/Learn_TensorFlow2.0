@@ -77,7 +77,7 @@ def vgg16(include_top=True,weights='imagenet',
     # Block 3
     model.add(Conv2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv1'))
     model.add(Conv2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv2'))
-    model.add(Conv2D(256,3,strides=2,padding='same',activation='relu',name='block3_conv3'))
+    model.add(Conv2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv3'))
     model.add(MaxPooling2D(2,2,'same',name='block3_maxpool'))
 
     # Block 4
@@ -222,6 +222,7 @@ if __name__=='__main__':
     
     # set gpu and env
     os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+    os.environ['CUDA_VISIBLE_DEVICES']='-1'
     import tensorflow as tf 
     phy_gpus = tf.config.experimental.list_physical_devices('GPU')
     for gpu in phy_gpus:
@@ -230,5 +231,12 @@ if __name__=='__main__':
     # test
     #model = vgg16(weights='imagenet',input_shape=(224,224,3),include_top=True,classes=100)
     #model.summary()
+    #   Total params: 138,357,544
+    #   Trainable params: 138,357,544
+    #   Non-trainable params: 0
+
     model = vgg19(weights=None,input_shape=(224,224,3),include_top=True,classes=1000)
     model.summary()
+    #   Total params: 143,667,240
+    #   Trainable params: 143,667,240
+    #   Non-trainable params: 0
