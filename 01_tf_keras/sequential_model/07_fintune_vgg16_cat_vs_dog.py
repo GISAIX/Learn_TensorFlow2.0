@@ -11,7 +11,7 @@ for gpu in phy_gpus:
    tf.config.experimental.set_memory_growth(gpu,True)
 
 # 导入模型
-from vgg16 import vgg16_sequential_model
+from vgg import vgg16
 from tensorflow.keras.models import *
 from tensorflow.keras.layers import *
 from tensorflow.keras.optimizers import *
@@ -20,7 +20,7 @@ from tensorflow.keras.preprocessing.image import *
 weights_path = '01_tf_keras/sequential_model/weights/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
 
 
-model = vgg16_sequential_model(weights=weights_path,
+model = vgg16(weights=weights_path,
                 include_top=False,input_shape=(150,150,3),classes=2)
 
 model.add(Flatten(input_shape=model.output_shape[1:],name='flatten'))
