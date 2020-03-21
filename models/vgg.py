@@ -64,32 +64,32 @@ def vgg16(include_top=True,weights='imagenet',
     model = Sequential()
 
     # Block 1
-    model.add(Convolution2D(input_shape=input_shape,filters=64,kernel_size=3,
+    model.add(Conv2D(input_shape=input_shape,filters=64,kernel_size=3,
                             strides=1,padding='same',activation='relu',name='block1_conv1'))
-    model.add(Convolution2D(64,3,strides=1,padding='same',activation='relu',name='block1_conv2'))
+    model.add(Conv2D(64,3,strides=1,padding='same',activation='relu',name='block1_conv2'))
     model.add(MaxPooling2D(2,2,'same',name='block1_maxpool'))
 
     # Block 2
-    model.add(Convolution2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv1'))
-    model.add(Convolution2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv2'))
+    model.add(Conv2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv1'))
+    model.add(Conv2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv2'))
     model.add(MaxPooling2D(2,2,'same',name='block2_maxpool'))
 
     # Block 3
-    model.add(Convolution2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv1'))
-    model.add(Convolution2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv2'))
-    model.add(Convolution2D(256,3,strides=2,padding='same',activation='relu',name='block3_conv3'))
+    model.add(Conv2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv1'))
+    model.add(Conv2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv2'))
+    model.add(Conv2D(256,3,strides=2,padding='same',activation='relu',name='block3_conv3'))
     model.add(MaxPooling2D(2,2,'same',name='block3_maxpool'))
 
     # Block 4
-    model.add(Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv1'))
-    model.add(Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv2'))
-    model.add(Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv3'))
+    model.add(Conv2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv1'))
+    model.add(Conv2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv2'))
+    model.add(Conv2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv3'))
     model.add(MaxPooling2D(2,2,'same',name='block4_maxpool'))
 
     # Block 5
-    model.add(Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv1'))
-    model.add(Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv2'))
-    model.add(Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv3'))
+    model.add(Conv2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv1'))
+    model.add(Conv2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv2'))
+    model.add(Conv2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv3'))
     model.add(MaxPooling2D(2,2,'same',name='block5_maxpool'))
 
     if include_top: #包含默认的全连接层
@@ -153,34 +153,34 @@ def vgg19(include_top=True,weights='imagenet',
     input_ = Input(shape=input_shape)
     
     # Block 1
-    net = Convolution2D(64,3,strides=1,padding='same',activation='relu',name='block1_conv1')(input_)
-    net = Convolution2D(64,3,strides=1,padding='same',activation='relu',name='block1_conv2')(net)
+    net = Conv2D(64,3,strides=1,padding='same',activation='relu',name='block1_conv1')(input_)
+    net = Conv2D(64,3,strides=1,padding='same',activation='relu',name='block1_conv2')(net)
     net = MaxPooling2D(2,2,'same',name='block1_maxpool')(net)
 
     # Block 2
-    net = Convolution2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv1')(net)
-    net = Convolution2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv2')(net)
+    net = Conv2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv1')(net)
+    net = Conv2D(128,3,strides=1,padding='same',activation='relu',name='block2_conv2')(net)
     net = MaxPooling2D(2,2,'same',name='block2_maxpool')(net)
 
     # Block 3
-    net = Convolution2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv1')(net)
-    net = Convolution2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv2')(net)
-    net = Convolution2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv3')(net)
-    net = Convolution2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv4')(net)
+    net = Conv2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv1')(net)
+    net = Conv2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv2')(net)
+    net = Conv2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv3')(net)
+    net = Conv2D(256,3,strides=1,padding='same',activation='relu',name='block3_conv4')(net)
     net = MaxPooling2D(2,2,'same',name='block3_maxpool')(net)
 
     # Block 4
-    net = Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv1')(net)
-    net = Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv2')(net)
-    net = Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv3')(net)
-    net = Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv4')(net)
+    net = Conv2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv1')(net)
+    net = Conv2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv2')(net)
+    net = Conv2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv3')(net)
+    net = Conv2D(512,3,strides=1,padding='same',activation='relu',name='block4_conv4')(net)
     net = MaxPooling2D(2,2,'same',name='block4_maxpool')(net)
 
     # Block 5
-    net = Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv1')(net)
-    net = Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv2')(net)
-    net = Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv3')(net)
-    net = Convolution2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv4')(net)
+    net = Conv2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv1')(net)
+    net = Conv2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv2')(net)
+    net = Conv2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv3')(net)
+    net = Conv2D(512,3,strides=1,padding='same',activation='relu',name='block5_conv4')(net)
     net = MaxPooling2D(2,2,'same',name='block5_maxpool')(net)
 
     if include_top:

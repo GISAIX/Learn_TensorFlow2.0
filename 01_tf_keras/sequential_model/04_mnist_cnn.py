@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense,Dropout,Convolution2D,MaxPooling2D,Flatten
+from tensorflow.keras.layers import Dense,Dropout,Conv2D,MaxPooling2D,Flatten
 from tensorflow.keras.optimizers import SGD
 
 # 加载数据
@@ -23,7 +23,7 @@ def load_mnist_func(path):
     x_test, y_test = f['x_test'], f['y_test']
     f.close()
     return (x_train, y_train), (x_test, y_test)
-(x_train_data,y_train_data),(x_test_data,y_test_data) = load_mnist_func(path='./data/mnist.npz')
+(x_train_data,y_train_data),(x_test_data,y_test_data) = load_mnist_func(path='01_tf_keras/sequential_model/data/mnist.npz')
 print("x_train_shape:",x_train_data.shape)
 print("y_train_shape:",y_train_data.shape)
 print("x_test_shape:",x_test_data.shape)
@@ -41,13 +41,13 @@ y_test_data = to_categorical(y_test_data,num_classes=10)
 
 # 构建模型
 model = Sequential()
-model.add(Convolution2D(input_shape = (28,28,1),filters = 32,kernel_size = 3,
+model.add(Conv2D(input_shape = (28,28,1),filters = 32,kernel_size = 3,
     strides = 1,padding = 'same',activation = 'relu'))
 model.add(MaxPooling2D(pool_size = 2,strides =2,padding = 'same',))
 
-model.add(Convolution2D(64,3,strides=2,padding='same',activation = 'relu'))
+model.add(Conv2D(64,3,strides=2,padding='same',activation = 'relu'))
 model.add(MaxPooling2D(2,2,'same'))
-model.add(Convolution2D(128,3,strides=2,padding='same',activation = 'relu'))
+model.add(Conv2D(128,3,strides=2,padding='same',activation = 'relu'))
 model.add(MaxPooling2D(2,2,'same'))
 
 #把第二个池化层的输出扁平化为1维
