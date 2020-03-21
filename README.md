@@ -172,5 +172,6 @@ with tf.GradientTape()as tape:
 3.快速上手tf.keras第一部分：实现回归模型: <https://blog.csdn.net/PecoHe/article/details/88868084>  
 4.快速上手tf.keras第二部分：手写数字识别 :<https://blog.csdn.net/PecoHe/article/details/88868174>  
 5.tf.keras trick之使用图像数据增强 :<https://blog.csdn.net/PecoHe/article/details/88875886>  
+6.实践：使用Sequential Model搭建VGG16进行猫狗识别 :<https://blog.csdn.net/PecoHe/article/details/88875914>  
 
 
