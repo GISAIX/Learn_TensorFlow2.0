@@ -109,7 +109,7 @@ model.compile(optimizer ='adam',loss ='sparse_categorical_crossentropy',metrics 
 model.fit(x_train,y_train,epochs = 5)
 model.evaluate(x_test,y_test)
 ```
-你可以在tensorflow.org/tutorials上找到更多使用```Sequential API```的示例。
+
 
 ### Functional API
 
@@ -158,20 +158,17 @@ with tf.GradientTape()as tape:
 你可以：
 将```kef.keras.layers```与```Keras```模型定义分开使用，并编写自己的梯度和训练代码。你可以单独地使用```tf.keras.optimizers```，```tf.keras.initializers```，```tf.keras.losses```或```tf.keras.metrics```。或者完全忽略```tf.keras```并使用低级```TensorFlow```，```Python```和```AutoGraph```来获得所需的结果。这完全取决于你！请注意，不推荐使用```tf.layers```中的非面向对象层，并且```tf.contrib.*```（包括```tf.contrib.slim```和```tf.contrib.learn```等高级API）将无法在```TF 2.0```中使用。
 
-### Estimators会发生什么样的变化？
-估算器广泛用于Google以及更广泛的TensorFlow社区。已经将几种模型打包为```Premade Estimators```，包括线性分类器，DNN分类器，组合DNN线性分类器（又名宽和深模型）和梯度增强树。这些模型已经投入生产并得到广泛部署，由于所有这些原因，```Estimator API```（包括```Premade Estimators```）将包含在```TensorFlow 2.0```中。
-对于```Premade Estimators```的用户来说，新焦点对```Keras```和```Eager execution```的影响将是微乎其微的。我们可能会更改```Premade Estimators```的实现，同时保持API表面相同。我们还将努力添加作为```Premade Estimators```实现的模型的```Keras```版本，我们将扩展```Keras```以更好地满足大规模生产要求。
-也就是说，如果您正在开发自定义架构，我们建议使用```tf.keras```来构建模型而不是```Estimator```。如果您正在使用需要```Estimators```的基础架构，您可以使用```model_to_estimator()```来转换模型，同时确保```KerasTensorFlow```生态系统中工作。
-
 ## 5.使用TensorFlow 2.0吧！
 我们希望您能像我们一样喜欢使用```tf.keras```！在接下来的几个月里，```TensorFlow```团队将专注于完善开发人员体验。我们的文档和教程将反映这一方向。我们期待您的想法和反馈，以及通过```GitHub问题和PR```的贡献。感谢大家！
 
 ## 6.博客目录
 1.TensorFlow2.0全景: <https://blog.csdn.net/PecoHe/article/details/89672824>  
-2.深度学习与tf.keras基础API总结: <https://blog.csdn.net/PecoHe/article/details/88875837>  
-3.快速上手tf.keras第一部分：实现回归模型: <https://blog.csdn.net/PecoHe/article/details/88868084>  
-4.快速上手tf.keras第二部分：手写数字识别 :<https://blog.csdn.net/PecoHe/article/details/88868174>  
-5.tf.keras trick之使用图像数据增强 :<https://blog.csdn.net/PecoHe/article/details/88875886>  
-6.实践：使用Sequential Model搭建VGG16进行猫狗识别 :<https://blog.csdn.net/PecoHe/article/details/88875914>  
-
+2.理解Tensor：<https://blog.csdn.net/PecoHe/article/details/89673037>  
+3.基础的Tensor OP：<https://blog.csdn.net/PecoHe/article/details/91356275>  
+4.深度学习与tf.keras基础API总结: <https://blog.csdn.net/PecoHe/article/details/88875837>  
+5.快速上手tf.keras第一部分：实现回归模型: <https://blog.csdn.net/PecoHe/article/details/88868084>  
+6.快速上手tf.keras第二部分：手写数字识别 :<https://blog.csdn.net/PecoHe/article/details/88868174>  
+7.tf.keras trick之使用图像数据增强 :<https://blog.csdn.net/PecoHe/article/details/88875886>  
+8.实践：使用Sequential Model搭建VGG16进行猫狗识别 :<https://blog.csdn.net/PecoHe/article/details/88875914>  
+9.tf.keras函数式API详解：<https://blog.csdn.net/PecoHe/article/details/88875860>  
 
