@@ -5,8 +5,6 @@
     https://arxiv.org/abs/1409.1556) (ICLR 2015)
 - [vgg16.py](
     https://github.com/keras-team/keras-applications/blob/master/keras_applications/vgg16.py)
-- [Very Deep Convolutional Networks for Large-Scale Image Recognition](
-    https://arxiv.org/abs/1409.1556) (ICLR 2015)
 - [vgg19.py](
     https://github.com/keras-team/keras-applications/blob/master/keras_applications/vgg19.py)
 """
@@ -150,7 +148,7 @@ def vgg19(include_top=True,weights='imagenet',
     if weights=='imagenet' and include_top and classes!=1000:
         raise ValueError("if using weights='imagenet' and include_top=True,classes should be 1000.")
     
-    input_ = Input(shape=input_shape)
+    input_ = tf.keras.Input(shape=input_shape)
     
     # Block 1
     net = Conv2D(64,3,strides=1,padding='same',activation='relu',name='block1_conv1')(input_)
@@ -194,7 +192,7 @@ def vgg19(include_top=True,weights='imagenet',
         elif pooling == 'max':
             net = GlobalMaxPooling2D()(net)
 
-    model = Model(input_, net, name='VGG19')
+    model = tf.keras.Model(input_, net, name='VGG19')
 
     # 加载权重
     if weights == 'imagenet':
