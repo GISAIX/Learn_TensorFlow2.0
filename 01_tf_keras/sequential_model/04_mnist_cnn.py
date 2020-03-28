@@ -11,10 +11,11 @@ for gpu in phy_gpus:
  
 import matplotlib.pyplot as plt
 import numpy as np
-from tensorflow.keras.utils import to_categorical
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense,Dropout,Conv2D,MaxPooling2D,Flatten
-from tensorflow.keras.optimizers import SGD
+from tensorflow.python.keras import Sequential
+
+from tensorflow.python.keras.utils import to_categorical
+from tensorflow.python.keras.layers import Dense,Dropout,Conv2D,MaxPooling2D,Flatten
+from tensorflow.python.keras.optimizers import SGD
 
 # 加载数据
 def load_mnist_func(path):
@@ -68,7 +69,7 @@ model.fit(x_train_data,y_train_data,batch_size=64,epochs=100)
 loss,accuracy = model.evaluate(x_test_data,y_test_data)
 
 model_path="./weights/mnist_cnn.h5"
-model.save(model_path)
+model.save(model_path,include_optimizer=False,save_format='h5')
 
 print('test loss',loss)
 print('test accuracy',accuracy)

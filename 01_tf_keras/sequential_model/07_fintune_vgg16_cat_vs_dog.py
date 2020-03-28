@@ -12,20 +12,20 @@ for gpu in phy_gpus:
 
 # 导入模型
 from vgg import vgg16
-from tensorflow.keras.models import *
-from tensorflow.keras.layers import *
-from tensorflow.keras.optimizers import *
-from tensorflow.keras.preprocessing.image import *
+
+from tensorflow.python.keras import Sequential
+from tensorflow.python.keras.layers import *
+from tensorflow.python.keras.optimizers import *
+from tensorflow.python.keras.preprocessing.image import *
 
 weights_path = '01_tf_keras/sequential_model/weights/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
 
+model = vgg16(weights=weights_path,include_top=False,
+                        input_shape=(150,150,3),classes=2)
 
-model = vgg16(weights=weights_path,
-                include_top=False,input_shape=(150,150,3),classes=2)
-
-model.add(Flatten(input_shape=model.output_shape[1:],name='flatten'))
-model.add(Dense(256,activation='relu',name='fc_layer1'))
-model.add(Dropout(0.3,name='dropout1'))
+model.add(Flatten(name='flatten_1'))
+model.add(Dense(256,activation='relu',name='fc_1'))
+model.add(Dropout(0.3,name='dropout_1'))
 model.add(Dense(2,activation='softmax',name='predictions_layer'))
 model.summary()
 
@@ -53,7 +53,7 @@ test_generator = test_datagen.flow_from_directory(
 # train
 model.compile(optimizer=SGD(lr=0.001,momentum=0.9),loss='categorical_crossentropy',metrics=['accuracy'])
 model.fit_generator(train_generator,steps_per_epoch=len(train_generator),
-                    epochs=50,validation_data=test_generator,
+                    epochs=100,validation_data=test_generator,
                     validation_steps=len(test_generator))
 
-model.save('01_tf_keras/sequential_model/weights/model_vgg16.h5')
+model1.save('01_tf_keras/sequential_model/weights/model_vgg16.h5',include_optimizer=False,save_format='h5')

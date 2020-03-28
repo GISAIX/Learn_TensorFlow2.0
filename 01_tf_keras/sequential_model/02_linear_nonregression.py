@@ -11,12 +11,13 @@ for gpu in phy_gpus:
 
 import numpy as np
 import matplotlib.pyplot as plt
+
 # keras顺序构成模型
-from tensorflow.keras.models import Sequential
+from tensorflow.python.keras import Sequential
 # Dense全连接层
-from tensorflow.keras.layers import Dense,Activation
+from tensorflow.python.keras.layers import Dense,Activation
 # 导入SGD优化器
-from tensorflow.keras.optimizers import SGD
+from tensorflow.python.keras.optimizers import SGD
 
 # 利用numpy生成200个随机点
 x_data = np.linspace(-0.5,0.5,200)
@@ -35,13 +36,14 @@ from keras.optimizers import SGD
 sgd=SGD(lr=0.1）
 '''
 model = Sequential()
-# 定义优化算法
+
+# 定义优化算法并指定学习率
 sgd = SGD(lr=0.1)
 
 #构建一个1-10-1结构的网络
-model.add(Dense(units=10,input_dim=1))
+model.add(Dense(units=10,input_dim=1,name='fc_1'))
 model.add(Activation('tanh'))
-model.add(Dense(units=1,input_dim=10))
+model.add(Dense(units=1,input_dim=10,name='fc_2'))
 model.add(Activation('tanh'))
 
 # 编译模型，打印出模型结构

@@ -12,9 +12,9 @@ for gpu in phy_gpus:
 import numpy as np
 import matplotlib.pyplot as plt
 # keras顺序构成的模型
-from tensorflow.keras.models import Sequential
+from tensorflow.python.keras import Sequential
 # Dense全连接层
-from tensorflow.keras.layers import Dense
+from tensorflow.python.keras.layers import Dense
 
 # 利用numpy生成100个随机点
 x_data = np.random.rand(100)
@@ -28,7 +28,7 @@ plt.show()
 # 构建模型
 model = Sequential()
 # units输出维度 input_dim输入维度
-model.add(Dense(units=1,input_dim=1))
+model.add(Dense(units=1,input_dim=1,name='dense_1'))
 model.compile(optimizer='sgd',loss='mse')
 model.summary()
 
