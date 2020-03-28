@@ -56,4 +56,4 @@ model.fit_generator(train_generator,steps_per_epoch=len(train_generator),
                     epochs=100,validation_data=test_generator,
                     validation_steps=len(test_generator))
 
-model1.save('01_tf_keras/sequential_model/weights/model_vgg16.h5',include_optimizer=False,save_format='h5')
+model.save('01_tf_keras/sequential_model/weights/model_vgg16.h5',include_optimizer=False,save_format='h5')
