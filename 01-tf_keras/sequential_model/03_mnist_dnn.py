@@ -10,12 +10,12 @@ for gpu in phy_gpus:
    tf.config.experimental.set_memory_growth(gpu,True)
 
 import numpy as np
-from tensorflow.python.keras import Sequential
+from tensorflow.keras import Sequential
 
-from tensorflow.python.keras.utils import to_categorical
-from tensorflow.python.keras.layers import Dense,Dropout
-from tensorflow.python.keras.optimizers import SGD
-from tensorflow.python.keras.regularizers import l2
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.layers import Dense,Dropout
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.regularizers import l2
 
 def load_mnist_func(path):
     f = np.load(path)
@@ -23,7 +23,7 @@ def load_mnist_func(path):
     x_test, y_test = f['x_test'], f['y_test']
     f.close()
     return (x_train, y_train), (x_test, y_test)
-(x_train_data,y_train_data),(x_test_data,y_test_data) = load_mnist_func(path='01_tf_keras/sequential_model/data/mnist.npz')
+(x_train_data,y_train_data),(x_test_data,y_test_data) = load_mnist_func(path='01-tf_keras/sequential_model/data/mnist.npz')
 
 print("x_train_shape:",x_train_data.shape)
 print("y_train_shape:",y_train_data.shape)
@@ -54,8 +54,8 @@ model.compile(
 
 #train
 model.fit(x_train_data,y_train_data,batch_size=128,epochs=20)
-model.save("01_tf_keras/sequential_model/weights/mnist_dnn.h5",
-                include_optimizer=False,save_format='h5')
+model.save("01-tf_keras/sequential_model/weights/mnist_dnn.h5",
+            include_optimizer=True,save_format='h5')
 
 #evaluate of test data
 loss,accuracy = model.evaluate(x_test_data,y_test_data)
