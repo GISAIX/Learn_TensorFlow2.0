@@ -13,15 +13,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # keras顺序构成模型
-from tensorflow.python.keras import Sequential
+from tensorflow.keras import Sequential
 # Dense全连接层
-from tensorflow.python.keras.layers import Dense,Activation
+from tensorflow.keras.layers import Dense,Activation
 # 导入SGD优化器
-from tensorflow.python.keras.optimizers import SGD
+from tensorflow.keras.optimizers import SGD
 
 # 利用numpy生成200个随机点
 x_data = np.linspace(-0.5,0.5,200)
 noise = np.random.normal(0,0.02,x_data.shape)
+# y=x^2
 y_data = np.square(x_data)+noise
 
 # 显示随机点
