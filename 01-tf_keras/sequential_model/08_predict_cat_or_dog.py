@@ -22,7 +22,7 @@ args = parser.parse_args()
 
 #加载模型
 label = np.array(['猫','狗'])
-model = load_model('01_tf_keras/sequential_model/weights/model_vgg16.h5')
+model = load_model('01-tf_keras/sequential_model/weights/model_vgg16.h5')
 
 def pred(img):
     image = load_img(img)

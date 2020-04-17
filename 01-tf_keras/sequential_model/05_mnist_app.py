@@ -12,9 +12,9 @@ for gpu in phy_gpus:
 import cv2 as cv
 import argparse as ap 
 import numpy as np
-from tensorflow.python.keras.models import load_model
+from tensorflow.keras.models import load_model
 
-model = load_model("01_tf_keras/sequential_model/weights/mnist_cnn.h5")
+model = load_model("01-tf_keras/sequential_model/weights/mnist_cnn.h5")
 
 def pred(file_name):
     img = cv.imread(file_name,0)
@@ -29,9 +29,9 @@ def pred(file_name):
 
 count = 0
 right = 0
-for img in os.listdir("01_tf_keras/sequential_model/data/test_numbers/"):
+for img in os.listdir("01-tf_keras/sequential_model/data/test_numbers/"):
     label = img[0]
-    result = pred("01_tf_keras/sequential_model/data/test_numbers/"+img)
+    result = pred("01-tf_keras/sequential_model/data/test_numbers/"+img)
     if str(result[0]) == label:
         right += 1
     count += 1

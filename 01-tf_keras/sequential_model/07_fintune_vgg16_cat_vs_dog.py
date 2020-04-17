@@ -18,14 +18,16 @@ from tensorflow.keras.layers import *
 from tensorflow.keras.optimizers import *
 from tensorflow.keras.preprocessing.image import *
 
-weights_path = '01_tf_keras/sequential_model/weights/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
+weights_path = '01-tf_keras/sequential_model/weights/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
 
 model = vgg16(weights=weights_path,include_top=False,
                         input_shape=(150,150,3),classes=2)
 
-model.add(Flatten(name='flatten_1'))
-model.add(Dense(256,activation='relu',name='fc_1'))
+model.add(Flatten(name='flatten'))
+model.add(Dense(4096,activation='relu',name='fc_1'))
 model.add(Dropout(0.3,name='dropout_1'))
+model.add(Dense(4096,activation='relu',name='fc_2'))
+model.add(Dropout(0.3,name='dropout_2'))
 model.add(Dense(2,activation='softmax',name='predictions_layer'))
 model.summary()
 
@@ -40,13 +42,13 @@ batch_size = 32
 
 # train_data
 train_generator = train_datagen.flow_from_directory(
-    '01_tf_keras/sequential_model/data/cat_vs_dog/train',
+    '01-tf_keras/sequential_model/data/cat_vs_dog/train',
     target_size=(150,150),
     batch_size=batch_size)
 
 # test_data
 test_generator = test_datagen.flow_from_directory(
-    '01_tf_keras/sequential_model/data/cat_vs_dog/test',
+    '01-tf_keras/sequential_model/data/cat_vs_dog/test',
     target_size=(150,150),
     batch_size=batch_size )
 
@@ -56,4 +58,4 @@ model.fit_generator(train_generator,steps_per_epoch=len(train_generator),
                     epochs=100,validation_data=test_generator,
                     validation_steps=len(test_generator))
 
-model.save('01_tf_keras/sequential_model/weights/model_vgg16.h5',include_optimizer=True,save_format='h5')
+model.save('01-tf_keras/sequential_model/weights/model_vgg16.h5',include_optimizer=True,save_format='h5')

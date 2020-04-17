@@ -10,7 +10,7 @@ for gpu in phy_gpus:
    tf.config.experimental.set_memory_growth(gpu,True)
 
 import numpy as np
-from tensorflow.python.keras.preprocessing.image import *
+from tensorflow.keras.preprocessing.image import *
 
 datagen = ImageDataGenerator(
     rotation_range = 40,width_shift_range = 0.2,height_shift_range = 0.2,rescale = 1/255,
