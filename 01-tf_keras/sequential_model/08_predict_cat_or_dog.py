@@ -9,8 +9,8 @@ print("num of physical gpus: ",len(phy_gpus))
 for gpu in phy_gpus:
    tf.config.experimental.set_memory_growth(gpu,True)
 
-from tensorflow.python.keras.preprocessing.image import *
-from tensorflow.python.keras.models import load_model
+from tensorflow.keras.preprocessing.image import *
+from tensorflow.keras.models import load_model
 import argparse as ap
 import numpy as np
 import cv2 as cv

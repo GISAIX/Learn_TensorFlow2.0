@@ -13,10 +13,10 @@ for gpu in phy_gpus:
 # 导入模型
 from vgg import vgg16
 
-from tensorflow.python.keras import Sequential
-from tensorflow.python.keras.layers import *
-from tensorflow.python.keras.optimizers import *
-from tensorflow.python.keras.preprocessing.image import *
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import *
+from tensorflow.keras.optimizers import *
+from tensorflow.keras.preprocessing.image import *
 
 weights_path = '01_tf_keras/sequential_model/weights/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
 
@@ -56,4 +56,4 @@ model.fit_generator(train_generator,steps_per_epoch=len(train_generator),
                     epochs=100,validation_data=test_generator,
                     validation_steps=len(test_generator))
 
-model.save('01_tf_keras/sequential_model/weights/model_vgg16.h5',include_optimizer=False,save_format='h5')
+model.save('01_tf_keras/sequential_model/weights/model_vgg16.h5',include_optimizer=True,save_format='h5')
